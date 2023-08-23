@@ -21,7 +21,7 @@ module.exports = {
       },
       {
         id: 2,
-        fecha_y_hora:"2023-08-18 14:20:14",
+        fecha_y_hora:"2023-09-18 14:20:14",
         ejercicio_id:2,
         usuario_id:2,
         repeticiones:12,

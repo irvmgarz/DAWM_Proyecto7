@@ -1,6 +1,7 @@
 'use strict';
  /* IMPORTE El ARCHIVO CON EL MODELO */
- const Registro = require('../models').registros_entrenamiento;
+ 
+ const registro_entrenamiento = require('../models').registros_entrenamiento;
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
@@ -11,7 +12,7 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
      /* CREACIÓN DE LA TABLA A PARTIR DE LA CLASE */
-     await Registro.sync()
+     await registro_entrenamiento.sync()
   },
 
   async down (queryInterface, Sequelize) {

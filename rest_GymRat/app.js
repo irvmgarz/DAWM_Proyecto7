@@ -13,6 +13,10 @@ var indexRouter = require('./routes/index');
 var app = express();
 /* REFERENCIA AL MANEJADOR DE RUTAS */
 var dbGymRatRouter = require('./routes/rest_dbGymRat');
+ /* REFERENCIA AL MANEJADOR DE RUTAS */
+ var dbRegistroRouter = require('./routes/rest_dbRegistro');
+  /* REFERENCIA AL MANEJADOR DE RUTAS */
+  var dbEjercicioRouter = require('./routes/rest_dbEjercicio');
 // view engine setup
 /* AGREGUE EL MIDDLEWARE CORS */
 app.use(cors());
@@ -31,6 +35,10 @@ app.use('/', indexRouter);
 
 /* RELACIÓN ENTRE LA RUTA DEL URL CON LA REFERENCIA CON EL MANEJADOR DE RUTAS */
 app.use('/rest/dbGymRat', dbGymRatRouter);
+/* RELACIÓN ENTRE LA RUTA DEL URL CON LA REFERENCIA CON EL MANEJADOR DE RUTAS */
+app.use('/rest/dbRegistro', dbRegistroRouter);
+/* RELACIÓN ENTRE LA RUTA DEL URL CON LA REFERENCIA CON EL MANEJADOR DE RUTAS */
+app.use('/rest/dbEjercicio', dbEjercicioRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

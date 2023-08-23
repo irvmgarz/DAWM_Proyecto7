@@ -34,6 +34,6 @@ module.exports = {
    async down (queryInterface, Sequelize) {
      
      /* ELIMINAR TODOS LOS REGISTROS DE LA TABLA */
-     await queryInterface.bulkDelete('<registro_entrenamiento', null, {});
+     await queryInterface.bulkDelete('registro_entrenamiento', null, {});
    }
  };

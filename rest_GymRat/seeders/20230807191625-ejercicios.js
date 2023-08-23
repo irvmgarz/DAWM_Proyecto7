@@ -11,13 +11,13 @@ module.exports = {
       {
         id: 1,
         nombre:"BenchPress",
-        categoria:"Pecho",
+        categoriaPRIMARY:"Pecho",
         descripcion:"secundaria" 
       },
       {
         id: 2,
         nombre:"Squad",
-        categoria:"Piernas",
+        categoriaPRIMARY:"Piernas",
         descripcion:"primaria"
       }
       ], {});

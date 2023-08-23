@@ -3,5 +3,4 @@ export interface DatosInter {
     nombre_usuario:string,
     correo_electronico:string,
     contrasena:string,
-    
 }

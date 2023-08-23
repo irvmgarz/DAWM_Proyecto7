@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 //Importación de la interfaz
 import { DatosInter} from 'src/app/interfaces/datos-inter';
-
 //Importación del servicio
 import { DatosProvedorService } from 'src/app/providers/datos-provedor.service';
 @Component({
@@ -21,6 +20,7 @@ export class MainComponent {
   ngOnInit() {
     this.dataProvider.getResponse().subscribe((response) => { 
       this.data = (response as DatosInter[]); 
+      console.log(this.data);
     })
   }
 

@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+ //Importación del módulo 
+ import { HttpClientModule } from  '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,7 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { MatCardModule } from '@angular/material/card';
-
+import {MatTableModule} from '@angular/material/table';
 import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatToolbarModule,
     MatCardModule,
     FlexLayoutModule,
+    HttpClientModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

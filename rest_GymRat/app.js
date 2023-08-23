@@ -6,10 +6,17 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-
+var logger = require('morgan');
+/* MÓDULO CORS */
+var cors = require('cors')
+var indexRouter = require('./routes/index');
 var app = express();
 /* REFERENCIA AL MANEJADOR DE RUTAS */
 var dbGymRatRouter = require('./routes/rest_dbGymRat');
+// view engine setup
+/* AGREGUE EL MIDDLEWARE CORS */
+app.use(cors());
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

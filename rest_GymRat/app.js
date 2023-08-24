@@ -11,7 +11,11 @@ var logger = require('morgan');
 var cors = require('cors')
 /* MÓDULO dotenv */
 const dotenv = require('dotenv');
+/* REFERENCIA AL MÓDULO */
+const swaggerUi = require('swagger-ui-express')
 
+/* REFERENCIA AL ARCHIVO GENERADO */
+const swaggerFile = require('./swagger_output.json')
 /* CARGA DE DATOS DE CONFIGURACION EN MEMORIA */
 dotenv.config();
 var indexRouter = require('./routes/index');
@@ -19,6 +23,8 @@ var indexRouter = require('./routes/index');
 var authenticateJWT = require('./middleware/auth');
 
 var app = express();
+
+
 /* REFERENCIA AL MANEJADOR DE RUTAS */
 var dbGymRatRouter = require('./routes/rest_dbGymRat');
  /* REFERENCIA AL MANEJADOR DE RUTAS */
@@ -32,7 +38,8 @@ var dbEjerciciosRouter = require('./routes/rest_dbEjercicios');
 // view engine setup
 /* AGREGUE EL MIDDLEWARE CORS */
 app.use(cors());
-
+/* CONFIGURACIÓN DE LA RUTA A LA DOCUMENTACIÓN */
+app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

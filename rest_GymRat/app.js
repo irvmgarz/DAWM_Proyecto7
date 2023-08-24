@@ -9,7 +9,15 @@ var usersRouter = require('./routes/users');
 var logger = require('morgan');
 /* MÓDULO CORS */
 var cors = require('cors')
+/* MÓDULO dotenv */
+const dotenv = require('dotenv');
+
+/* CARGA DE DATOS DE CONFIGURACION EN MEMORIA */
+dotenv.config();
 var indexRouter = require('./routes/index');
+/* CARGA DEL MIDDLEWARE authenticateJWT */
+var authenticateJWT = require('./middleware/auth');
+
 var app = express();
 /* REFERENCIA AL MANEJADOR DE RUTAS */
 var dbGymRatRouter = require('./routes/rest_dbGymRat');
@@ -17,6 +25,10 @@ var dbGymRatRouter = require('./routes/rest_dbGymRat');
 var dbRegistroRouter = require('./routes/rest_dbRegistro');
   /* REFERENCIA AL MANEJADOR DE RUTAS */
 var dbEjerciciosRouter = require('./routes/rest_dbEjercicios');
+
+ /* USE LA FUNCIÓN authenticateJWT */
+// app.use('/rest/libro', authenticateJWT, librosRouter);
+
 // view engine setup
 /* AGREGUE EL MIDDLEWARE CORS */
 app.use(cors());
@@ -34,7 +46,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 
 /* RELACIÓN ENTRE LA RUTA DEL URL CON LA REFERENCIA CON EL MANEJADOR DE RUTAS */
-app.use('/rest/dbGymRat', dbGymRatRouter);
+app.use('/rest/dbGymRat',authenticateJWT, dbGymRatRouter);
 /* RELACIÓN ENTRE LA RUTA DEL URL CON LA REFERENCIA CON EL MANEJADOR DE RUTAS */
 app.use('/rest/dbRegistro', dbRegistroRouter);
 /* RELACIÓN ENTRE LA RUTA DEL URL CON LA REFERENCIA CON EL MANEJADOR DE RUTAS */

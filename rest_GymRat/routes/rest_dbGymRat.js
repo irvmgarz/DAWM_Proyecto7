@@ -5,7 +5,13 @@ var router = express.Router();
 const clase_gym = require('../models').usuarios;
 
 router.get('/findAll/json', function(req, res, next) {  
+    /* VERIFICADOR DE AUTORIZACIÓN */
 
+    const { rol } = req.user;
+
+    if (rol !== 'admin') {
+        return res.sendStatus(403);
+    }
     /* MÉTODO ESTÁTICO findAll  */
 
   clase_gym.findAll({  
